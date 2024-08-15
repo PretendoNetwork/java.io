@@ -1,4 +1,5 @@
 export default interface InputStream {
+	hasDataLeft(): boolean;
 	pos(): number;
 	peek(): number;
 	skip(offset: number): void;
