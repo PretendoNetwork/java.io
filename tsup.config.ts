@@ -1,10 +1,13 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-	name: 'java.io',
 	entry: ['src/index.ts'],
 	sourcemap: true,
 	treeshake: true,
 	clean: true,
-	minify: true
+	minify: true,
+	dts: true,
+	esbuildOptions(options) {
+		options.keepNames = true; // * Don't mangle class names
+	}
 });
