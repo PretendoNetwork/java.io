@@ -7,7 +7,7 @@
 import type InputStream from '@/types/input-stream';
 
 export default class ObjectInputStream {
-	public stream: InputStream; // TODO - Make this private. Kept as public for debugging purposes outside of this class
+	private stream: InputStream;
 
 	private readonly STREAM_MAGIC = Buffer.from([ 0xAC, 0xED ]);
 	private readonly STREAM_VERSION = 5;
@@ -37,7 +37,7 @@ export default class ObjectInputStream {
 	private readonly SC_ENUM = 0X10;
 
 	// TODO - Remove this "any"
-	public references: any[] = []; // TODO - Make this private. Kept as public for debugging purposes outside of this class
+	private references: any[] = [];
 
 	constructor(stream: InputStream) {
 		this.stream = stream;
