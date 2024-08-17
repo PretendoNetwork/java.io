@@ -58,15 +58,6 @@ export default class ObjectInputStream {
 	// * Begin helper methods. Used to emulate https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ObjectInputStream.html
 	// * and to assist in internal data reading. Can be defined in whatever order makes sense
 
-	public checkNext(): void {
-		// * Temporary debugging function. Used to manually check the position the
-		// * decoder is at inside the data stream and what the current byte is. Used
-		// * to check the next object type mostly
-		// TODO - Remove this once complete
-		console.log(this.stream.pos());
-		console.log(this.stream.peek());
-	}
-
 	public readBoolean(): boolean {
 		return this.stream.readBoolean();
 	}
