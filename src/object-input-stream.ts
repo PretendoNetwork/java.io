@@ -567,7 +567,7 @@ export default class ObjectInputStream {
 	}
 }
 
-class ClassData {
+export class ClassData {
 	public values: Record<string, any> = {}; // TODO - Remove this "any"
 	public annotation: any[] = []; // TODO - Remove this "any"
 
@@ -596,7 +596,7 @@ class ClassData {
 	}
 }
 
-class JavaObject {
+export class JavaObject {
 	public description?: JavaClassDesc | null;
 	public handle!: number;
 
@@ -609,7 +609,7 @@ class JavaObject {
 	}
 }
 
-class JavaClassDesc {
+export class JavaClassDesc {
 	public className = new JavaString();
 	public serialVersionUID!: bigint;
 	public handle!: number;
@@ -631,7 +631,7 @@ class JavaClassDesc {
 	}
 }
 
-class JavaClassDescInfo {
+export class JavaClassDescInfo {
 	public flags!: number;
 	public fields: JavaClassDescInfoField[] = [];
 	public annotation: any[] = []; // TODO - Remove this "any"
@@ -660,7 +660,7 @@ class JavaClassDescInfo {
 	}
 }
 
-class JavaClassDescInfoField {
+export class JavaClassDescInfoField {
 	public typeCode!: string;
 	public name!: string;
 	public className1?: JavaString | JavaLongString;
@@ -676,7 +676,7 @@ class JavaClassDescInfoField {
 	}
 }
 
-class JavaString {
+export class JavaString {
 	public value!: string;
 	public handle!: number;
 
@@ -689,7 +689,7 @@ class JavaString {
 	}
 }
 
-class JavaLongString extends JavaString {
+export class JavaLongString extends JavaString {
 	public clone() {
 		const clone = new JavaLongString();
 
@@ -699,7 +699,7 @@ class JavaLongString extends JavaString {
 	}
 }
 
-class BlockData {
+export class BlockData {
 	public data!: Buffer;
 
 	public clone() {
@@ -711,7 +711,7 @@ class BlockData {
 	}
 }
 
-class BlockDataLong extends BlockData {
+export class BlockDataLong extends BlockData {
 	public clone() {
 		const clone = new BlockDataLong();
 
@@ -721,7 +721,7 @@ class BlockDataLong extends BlockData {
 	}
 }
 
-class JavaArray {
+export class JavaArray {
 	public description?: JavaClassDesc | null;
 	public handle!: number;
 	public values: any[] = []; // TODO - Remove this "any"
@@ -743,7 +743,7 @@ class JavaArray {
 	}
 }
 
-class JavaEnum {
+export class JavaEnum {
 	public description?: JavaClassDesc | null;
 	public handle!: number;
 	public constant!: JavaString | JavaLongString;
