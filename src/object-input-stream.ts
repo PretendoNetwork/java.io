@@ -571,7 +571,7 @@ class ClassData {
 	public values: Record<string, any> = {}; // TODO - Remove this "any"
 	public annotation: any[] = []; // TODO - Remove this "any"
 
-	clone() {
+	public clone() {
 		const clone = new ClassData();
 
 		for (const key in this.values) {
@@ -600,7 +600,7 @@ class JavaObject {
 	public description?: JavaClassDesc | null;
 	public handle!: number;
 
-	clone() {
+	public clone() {
 		const clone = new JavaObject();
 
 		clone.description = this.description?.clone();
@@ -620,7 +620,7 @@ class JavaClassDesc {
 		return (this.info.flags & flag) === flag;
 	}
 
-	clone() {
+	public clone() {
 		const clone = new JavaClassDesc();
 
 		clone.className = this.className.clone();
@@ -637,7 +637,7 @@ class JavaClassDescInfo {
 	public annotation: any[] = []; // TODO - Remove this "any"
 	public superClass?: JavaClassDesc | null;
 
-	clone() {
+	public clone() {
 		const clone = new JavaClassDescInfo();
 
 		clone.flags = Number(this.flags);
@@ -661,11 +661,11 @@ class JavaClassDescInfo {
 }
 
 class JavaClassDescInfoField {
-	typeCode!: string;
-	name!: string;
-	className1?: JavaString | JavaLongString;
+	public typeCode!: string;
+	public name!: string;
+	public className1?: JavaString | JavaLongString;
 
-	clone() {
+	public clone() {
 		const clone = new JavaClassDescInfoField();
 
 		clone.typeCode = String(this.typeCode);
@@ -677,10 +677,10 @@ class JavaClassDescInfoField {
 }
 
 class JavaString {
-	value!: string;
-	handle!: number;
+	public value!: string;
+	public handle!: number;
 
-	clone() {
+	public clone() {
 		const clone = new JavaString();
 
 		clone.value = String(this.value);
@@ -690,7 +690,7 @@ class JavaString {
 }
 
 class JavaLongString extends JavaString {
-	clone() {
+	public clone() {
 		const clone = new JavaLongString();
 
 		clone.value = String(this.value);
@@ -700,9 +700,9 @@ class JavaLongString extends JavaString {
 }
 
 class BlockData {
-	data!: Buffer;
+	public data!: Buffer;
 
-	clone() {
+	public clone() {
 		const clone = new BlockData();
 
 		clone.data = Buffer.from(this.data);
@@ -712,7 +712,7 @@ class BlockData {
 }
 
 class BlockDataLong extends BlockData {
-	clone() {
+	public clone() {
 		const clone = new BlockDataLong();
 
 		clone.data = Buffer.from(this.data);
@@ -726,7 +726,7 @@ class JavaArray {
 	public handle!: number;
 	public values: any[] = []; // TODO - Remove this "any"
 
-	clone() {
+	public clone() {
 		const clone = new JavaArray();
 
 		clone.description = this.description?.clone();
@@ -748,7 +748,7 @@ class JavaEnum {
 	public handle!: number;
 	public constant!: JavaString | JavaLongString;
 
-	clone() {
+	public clone() {
 		const clone = new JavaEnum();
 
 		clone.description = this.description?.clone();
